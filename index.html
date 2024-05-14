@@ -1,0 +1,48 @@
+<script>
+    function temp(temperatura, escalaOriginal) 
+    {
+        if (escalaOriginal === "C") 
+        {
+            return (temperatura * 9/5) + 32;
+        } 
+        else if (escalaOriginal === "F") 
+        {
+            return (temperatura - 32) * 5/9;
+        } 
+        else 
+        {
+            alert("Escala de temperatura não reconhecida");
+        }
+    }
+        function converterTemperatura() 
+            {
+        let escolha = +prompt("Escolha o tipo de conversão:\n1. Celsius para Fahrenheit\n2. Fahrenheit para Celsius");
+        if (escolha != 1 && escolha != 2) 
+        {
+         alert("Escolha inválida. Por favor, escolha 1 ou 2.");
+         const tentarNov = confirm("Deseja tentar novamente?");
+            if (tentarNov)
+            {
+            converterTemperatura();
+            }
+            else 
+            {
+            alert("Sistema encerrado");
+            }
+            return;
+        }   
+        let temperatura = parseFloat(prompt("Digite a temperatura:"));
+        if (escolha === 1) 
+        {
+            let resultado = temp(temperatura, "C");
+            alert(temperatura + "°C é equivalente a " + resultado.toFixed(1) + "°F.");
+        } 
+        else 
+        {
+            let resultado = temp(temperatura, "F");
+            alert(temperatura + "°F é equivalente a " + resultado.toFixed(1) + "°C.");
+        }
+            }
+   
+    converterTemperatura();
+</script>
